@@ -1,36 +1,39 @@
-/* Existing styles */
+/* Reset styles and apply a game theme */
 * {
     margin: 0;
     padding: 0;
-    font-family: 'Poppins', sans-serif;
-    box-sizing: border-box;
+    font-family: 'Press Start 2P', cursive; /* Game-style font */
+    box-sizing: border-box;   
 }
 
 body {
-    background: #0f0f0f; /* Dark background for tech theme */
-    color: #e0e0e0;
+    background: #000; /* Black background for neon theme */
+    color: #fff; /* White text for contrast */
     transition: background 0.5s ease-in-out;
 }
 
 header {
     text-align: center;
     padding: 20px;
-    background: #1a1a1a;
-    border-bottom: 2px solid #333;
+    background: rgba(0, 0, 0, 0.8); /* Dark background for header */
+    border-bottom: 3px solid #39ff14; /* Neon green border */
+    color: #fff; /* White title text */
 }
 
 h1 {
-    font-size: 2.5rem;
+    font-size: 3rem;
     margin: 0;
-    color: #00bcd4; /* Teal color for a tech feel */
+    color: #fff; /* White text for better contrast */
+    text-shadow: 2px 2px 4px rgba(0, 255, 0, 0.5); /* Neon green shadow for text */
 }
 
 main {
     max-width: 1200px;
     margin: 20px auto;
     padding: 20px;
-    background: #1e1e1e; /* Slightly lighter background for content area */
-    border-radius: 8px;
+    background: rgba(0, 0, 0, 0.7); /* Dark semi-transparent background */
+    border-radius: 12px;
+    box-shadow: 0 0 10px rgba(0, 255, 0, 0.7); /* Neon green shadow effect */
 }
 
 form {
@@ -38,11 +41,12 @@ form {
     max-width: 600px;
     margin: auto;
     height: 60px;
-    background: #333;
+    background: rgba(255, 255, 255, 0.9); /* Semi-transparent white */
     display: flex;
     align-items: center;
     border-radius: 8px;
-    border: 1px solid #444;
+    border: 2px solid #39ff14; /* Neon green border */
+    animation: form-animation 0.5s ease-in-out;
 }
 
 form input {
@@ -51,7 +55,7 @@ form input {
     border: 0;
     outline: 0;
     background: transparent;
-    color: #e0e0e0;
+    color: #333;
     font-size: 16px;
     padding: 0 20px;
 }
@@ -59,24 +63,29 @@ form input {
 form button {
     padding: 0 30px;
     height: 100%;
-    background: #00bcd4;
-    color: #fff;
+    background: #39ff14; /* Neon green button */
+    color: #000;
     font-size: 16px;
     border: 0;
     outline: 0;
     border-top-right-radius: 8px;
     border-bottom-right-radius: 8px;
     cursor: pointer;
+    transition: background 0.3s ease, transform 0.3s ease;
+}
+
+form button:hover {
+    background: #00cc00; /* Darker neon green on hover */
 }
 
 ::placeholder {
-    color: #b0b0b0;
+    color: #666;
     font-size: 16px;
 }
 
 #show-more-btn {
-    background: #00bcd4;
-    color: #fff;
+    background: #39ff14; /* Neon green button */
+    color: #000;
     border: 0;
     outline: 0;
     padding: 10px 20px;
@@ -84,6 +93,11 @@ form button {
     margin: 10px auto;
     cursor: pointer;
     display: none;
+    transition: transform 0.3s ease;
+}
+
+#show-more-btn:hover {
+    transform: scale(1.1); /* Slightly enlarge on hover */
 }
 
 #Search-result {
@@ -102,11 +116,12 @@ form button {
     height: auto;
     border-radius: 8px;
     cursor: pointer;
-    transition: transform 0.3s ease;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 #Search-result img:hover {
     transform: scale(1.05);
+    box-shadow: 0 0 15px rgba(0, 255, 0, 0.5); /* Neon green shadow */
 }
 
 .hidden {
@@ -117,10 +132,11 @@ form button {
     width: 80%;
     max-width: 600px;
     margin: 20px auto;
-    background: #333;
+    background: rgba(0, 0, 0, 0.8); /* Dark background for panel */
     padding: 20px;
-    border-radius: 8px;
+    border-radius: 12px;
     text-align: center;
+    box-shadow: 0 0 10px rgba(0, 255, 0, 0.7); /* Neon green shadow */
 }
 
 #customization-panel input,
@@ -130,29 +146,48 @@ form button {
     margin: 10px auto;
     padding: 10px;
     font-size: 16px;
-    border: 1px solid #444;
+    border: 1px solid #39ff14; /* Neon green border */
     border-radius: 4px;
+    background: #222; /* Dark background for inputs and buttons */
+    color: #fff;
+}
+
+#customization-panel button {
+    background: #39ff14; /* Neon green button */
+    transition: background 0.3s ease, transform 0.3s ease;
+}
+
+#customization-panel button:hover {
+    background: #00cc00; /* Darker neon green on hover */
+    transform: scale(1.05); /* Slightly enlarge on hover */
 }
 
 #canvas {
-    display: block;
+    display: none; /* Hide the canvas by default */
     margin: 20px auto;
-    border: 1px solid #444;
+    border: 2px solid #39ff14; /* Neon green border */
     border-radius: 8px;
-    max-width: 100%; /* Ensure the canvas fits within the container */
-    height: auto;    /* Maintain aspect ratio */
-    box-sizing: border-box; /* Include padding and border in the element's total width and height */
+    max-width: 100%;
+    height: auto;
+    box-sizing: border-box;
+    transition: opacity 0.3s ease;
 }
 
 #save-image {
     display: block;
     margin: 20px auto;
     padding: 10px 20px;
-    background: #00bcd4;
-    color: #fff;
+    background: #39ff14; /* Neon green button */
+    color: #000;
     border: 0;
     border-radius: 4px;
     cursor: pointer;
+    transition: background 0.3s ease, transform 0.3s ease;
+}
+
+#save-image:hover {
+    background: #00cc00; /* Darker neon green on hover */
+    transform: scale(1.05); /* Slightly enlarge on hover */
 }
 
 #gallery {
@@ -166,26 +201,27 @@ form button {
 }
 
 #gallery img {
-    flex: 1 1 calc(25% - 20px); /* Adjust width to fit 4 images per row with gap */
+    flex: 1 1 calc(25% - 20px);
     max-width: calc(25% - 20px);
-    height: auto; /* Maintain aspect ratio */
+    height: auto;
     border-radius: 8px;
-    transition: transform 0.3s ease;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 #gallery img:hover {
     transform: scale(1.05);
+    box-shadow: 0 0 15px rgba(0, 255, 0, 0.5); /* Neon green shadow */
 }
 
-/* Additional styles for new features */
 #filters,
 #collage-maker,
 #advanced-editing {
     margin-top: 20px;
-    background: #333;
+    background: rgba(0, 0, 0, 0.8); /* Dark background for panels */
     padding: 20px;
-    border-radius: 8px;
+    border-radius: 12px;
     text-align: center;
+    box-shadow: 0 0 10px rgba(0, 255, 0, 0.7); /* Neon green shadow */
 }
 
 #filters button,
@@ -195,9 +231,18 @@ form button {
     margin: 10px;
     padding: 10px;
     font-size: 16px;
-    background: #00bcd4;
-    color: #fff;
+    background: #39ff14; /* Neon green button */
+    color: #000;
     border: none;
     border-radius: 4px;
     cursor: pointer;
+    transition: background 0.3s ease, transform 0.3s ease;
 }
+
+#filters button:hover,
+#collage-maker button:hover,
+#advanced-editing button:hover {
+    background: #00cc00; /* Darker neon green on hover */
+    transform: scale(1.05); /* Slightly enlarge on hover */
+}
+

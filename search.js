@@ -54,8 +54,12 @@ function displayImages(images) {
 
 function selectImage(url) {
     selectedImage = url;
-    customizationPanel.classList.remove("hidden");
+    
+    // Show the canvas and other panels
     canvas.classList.remove("hidden");
+    canvas.style.display = "block"; // Ensure the canvas is visible
+
+    customizationPanel.classList.remove("hidden");
     saveImageBtn.classList.remove("hidden");
     filtersPanel.classList.remove("hidden");
     advancedEditingPanel.classList.remove("hidden");
@@ -233,3 +237,4 @@ searchResult.addEventListener("click", (e) => {
         }
     }
 });
+
